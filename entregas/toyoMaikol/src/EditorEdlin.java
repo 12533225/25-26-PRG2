@@ -23,6 +23,27 @@ public class EditorEdlin {
                 break;
             }
             
+            switch (command) {
+                case "L":
+                    System.out.print("Número de línea (0-9): ");
+                    try {
+                        int index = Integer.parseInt(sc.nextLine());
+                        if (index >= 0 && index < 10) {
+                            activeLine = index;
+                        } else {
+                            System.out.println("Error: Fuera de rango.");
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Error: Ingrese un número válido.");
+                    }
+                    break;
+
+                case "E":
+                    System.out.print("Nuevo texto para línea " + activeLine + ": ");
+                    lines[activeLine] = sc.nextLine();
+                    break;
+            }
+            
         }
     }
 
