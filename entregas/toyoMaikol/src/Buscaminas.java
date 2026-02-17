@@ -8,6 +8,10 @@ public class Buscaminas {
     private static final int TOTAL_MINAS = 5;
     private boolean[][] mapaMinas;
     private Scanner scanner = new Scanner(System.in);
+    private static final int VIDAS_MAXIMAS = 3;
+    private int explosiones = 0;
+    private int celdasLiberadas = 0;
+    private boolean juegoTerminado = false;
 
     private char[][] tableroVisual;
 
@@ -33,8 +37,11 @@ public class Buscaminas {
     public void iniciar() {
         inicializarTablero();
         colocarMinas();
-        System.out.println("=== EXAMEN DE MINAS ===");
-        imprimirTablero();
+        
+        while (!juegoTerminado) {
+            imprimirTablero();
+            realizarJugada();
+        }
     }
 
     private void inicializarTablero() {
@@ -87,6 +94,35 @@ public class Buscaminas {
     }
 
     private void procesarCelda(int f, int c) {
-        System.out.println("Analizando celda: " + f + "," + c);
+        if (tableroVisual[f][c] != CELDA_OCULTA) {
+            System.out.println("¡Ya revisaste esta casilla!");
+            return;
+        }
+
+        if (mapaMinas[f][c]) {
+            System.out.println("¡MINA!");
+            tableroVisual[f][c] = '*';
+            explosiones++;
+        } else {
+            System.out.println("¡Libre!");
+            tableroVisual[f][c] = '.';
+            celdasLiberadas++;
+        }
+
+        verificarFinal();
     }
+
+    private void verificarFinal() {
+        int totalSeguras = (FILAS * COLUMNAS) - TOTAL_MINAS;
+        
+        if (explosiones >= VIDAS_MAXIMAS) {
+            imprimirTablero();
+            System.out.println("PERDISTE. Fin del juego.");
+            juegoTerminado = true;
+        } else if (celdasLiberadas == totalSeguras) {
+            imprimirTablero();
+            System.out.println("¡GANASTE! Tablero limpio.");
+            juegoTerminado = true;
+        }
+    }                                                                                                                                                                                                                                          
 }
