@@ -24,7 +24,7 @@ class Intervalo {
     public void mostrar()
     public void editar()
 
-    public Intervalo[] trozos(int numeroTrozos)
+    public Intervalo[] trocear(int numeroTrozos)
     public Intervalo union(Intervalo intervalo)
     public double puntoMedio();
 
