@@ -31,4 +31,29 @@ public class Fraccion {
         return a; 
     }
 
+    public Fraccion sumar(Fraccion fraccion) {
+        int nuevoNum = (this.numerador * fraccion.denominador) + (fraccion.numerador * this.denominador);
+        int nuevoDen = this.denominador * fraccion.denominador;
+        return new Fraccion(nuevoNum, nuevoDen);
+    }
+
+    public Fraccion restar(Fraccion fraccion) {
+        int nuevoNum = (this.numerador * fraccion.denominador) - (fraccion.numerador * this.denominador);
+        int nuevoDen = this.denominador * fraccion.denominador;
+        return new Fraccion(nuevoNum, nuevoDen);
+    }
+
+    public Fraccion multiplicar(Fraccion fraccion) {
+        int nuevoNum = this.numerador * fraccion.numerador;
+        int nuevoDen = this.denominador * fraccion.denominador;
+        return new Fraccion(nuevoNum, nuevoDen);
+    }
+
+    public Fraccion dividir(Fraccion fraccion) {
+        assert fraccion.numerador != 0 : "No se puede dividir por cero.";
+        int nuevoNum = this.numerador * fraccion.denominador;
+        int nuevoDen = this.denominador * fraccion.numerador;
+        return new Fraccion(nuevoNum, nuevoDen);
+    }
+
 }
