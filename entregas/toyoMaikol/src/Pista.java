@@ -1,6 +1,16 @@
-public class Pista {
-    private int longitud;
+    public class Pista {
+        private int longitud;
     private int[] posiciones;
+
+    public void avanzarCaballo(int numeroCaballo, int avance) {
+        int i = numeroCaballo - 1;
+        if (i >= 0 && i < posiciones.length) {
+            posiciones[i] += avance;
+            if (posiciones[i] > longitud - 1) {
+                posiciones[i] = longitud - 1;
+            }
+        }
+    }
 
     public void mostrarPista() {
         System.out.println("----------------------------------------------");

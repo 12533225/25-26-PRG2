@@ -1,10 +1,12 @@
 public class Caballo {
+    private int numero;
 
-    public Caballo(int numero){}
-
-    public void mover(Pista pista) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mover'");
+    public Caballo(int numero){
+        this.numero = numero;
     }
 
+    public void mover(Pista pista) {
+        int avance = (int)(Math.random() * 3);
+        pista.avanzarCaballo(numero, avance);
+    }
 }
