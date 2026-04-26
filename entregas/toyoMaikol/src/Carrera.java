@@ -12,7 +12,7 @@ public class Carrera {
         for(int i = 0; i < numeroJugadores; i++){
             caballos[i] = new Caballo(i + 1);
         }
-        turno = new Turno();
+        turno = new Turno(numeroJugadores);
     }
 
     public void jugar() {

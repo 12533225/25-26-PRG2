@@ -1,13 +1,17 @@
 public class Turno {
+    private int turnoActual;
+    private int numeroJugadores;
+
+    public Turno(int numeroJugadores) {
+        this.numeroJugadores = numeroJugadores;
+        this.turnoActual = 0;
+    }
 
     public void cambiar() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cambiar'");
+        turnoActual = (turnoActual + 1) % numeroJugadores;
     }
 
     public int toca() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'toca'");
+        return turnoActual;
     }
-
 }
