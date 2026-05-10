@@ -1,7 +1,15 @@
+import java.util.*;
+
 public class Baraja {
+    private List<Carta> cartas;
 
-    public void barajar() {}
+    public Baraja() {
+    }
 
-    public Object sacarCarta() {}
+    public void barajar() {
+    }
 
+    public Carta sacarCarta() {
+        return null;
+    }
 }
