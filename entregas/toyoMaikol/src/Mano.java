@@ -1,9 +1,17 @@
+import java.util.*;
+
 public class Mano {
+    private List<Carta> cartas = new ArrayList<>();
 
-    public int calcularPuntaje() {}
+    public void agregarCarta(Carta carta) {
+        cartas.add(carta);
+    }
 
-    public String mostrar() {}
+    public int calcularPuntaje() {
+        return 0;
+    }
 
-    public void agregarCarta(Object sacarCarta) {}
-
+    public String mostrar() {
+        return cartas.toString();
+    }
 }
